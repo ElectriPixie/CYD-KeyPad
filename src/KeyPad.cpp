@@ -141,7 +141,7 @@ void setup()
   drawKeyPad(&KeyPad);
 }
 
-boolean wastouched = true;
+bool wastouched = true;
 int x, y;
 int key;
 bool key_pressed;
