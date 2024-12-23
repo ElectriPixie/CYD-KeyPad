@@ -1,0 +1,1 @@
+replace the User_Setup.h in the TFT_eSPI library with this one
