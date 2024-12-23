@@ -1,8 +1,10 @@
 #include "Arduino.h"
+#include "../inc/WifiPasswd.h"
 
 #include <XPT2046_Touchscreen.h>
 #include <TFT_eSPI.h>
 #include <SPI.h>
+#include <WiFi.h>
 
 //#define TFT_BL 21
 //#define TFT_CS 15
@@ -119,9 +121,15 @@ int checkKeyPad(struct KeyPad* KeyPad, int x, int y)
   return -1;
 }
 
+void initWifi(const char* ssid, const char* password, int channel, int ssid_hidden, int max_connections)
+{
+  WiFi.mode(WIFI_AP);
+  WiFi.softAP(ssid, password, channel, ssid_hidden, max_connections);
+}
+
 void setup()
 {
-  Serial.begin(38400);
+  Serial.begin(115200);
 
   pinMode(TFT_BL, OUTPUT);
   digitalWrite(TFT_BL, HIGH);
@@ -139,6 +147,7 @@ void setup()
     ;
   initKeyPad(&KeyPad, 5, 320, 240, TFT_GREEN);
   drawKeyPad(&KeyPad);
+  initWifi(ssid, password, 11, 0, 4);
 }
 
 bool wastouched = true;
