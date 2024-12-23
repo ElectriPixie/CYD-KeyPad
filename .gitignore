@@ -1,3 +1,3 @@
 .pio
 .vscode/
-WifiPasswd.h
+inc/WifiPasswd.h
