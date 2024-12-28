@@ -1,5 +1,5 @@
 #include "Arduino.h"
-#include "../include/WifiPasswd.h"
+#include "WifiPasswd.h"
 
 #include <XPT2046_Touchscreen.h>
 #include <TFT_eSPI.h>
@@ -147,7 +147,7 @@ void setup()
     ;
   initKeyPad(&KeyPad, 5, 320, 240, TFT_GREEN);
   drawKeyPad(&KeyPad);
-  initWifi(ssid, password, 11, 0, 4);
+  //initWifi(ssid, password, 11, 0, 4);
 }
 
 bool wastouched = true;

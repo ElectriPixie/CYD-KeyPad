@@ -1,6 +1,7 @@
 Import("env")
 import os
 import shutil
+
 board_name = env.get("BOARD")
 lv_conf = env.get("PROJECT_INCLUDE_DIR")+"/lv_conf.h"
 lv_conf_link = env.get("PROJECT_DIR")+"/.pio/libdeps/"+board_name+"/lvgl/lv_conf.h"
