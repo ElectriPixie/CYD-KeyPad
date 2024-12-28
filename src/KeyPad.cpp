@@ -1,5 +1,5 @@
 #include "Arduino.h"
-#include "../inc/WifiPasswd.h"
+#include "../include/WifiPasswd.h"
 
 #include <XPT2046_Touchscreen.h>
 #include <TFT_eSPI.h>
