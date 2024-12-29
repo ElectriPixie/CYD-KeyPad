@@ -1,19 +1,12 @@
 #include "Arduino.h"
 #include "WifiPasswd.h"
-
 #include <XPT2046_Touchscreen.h>
 #include <TFT_eSPI.h>
 #include <SPI.h>
 #include <WiFi.h>
 
-//#define TFT_BL 21
-//#define TFT_CS 15
-//#define TFT_DC 2
-//#define TFT_MISO 12
-//#define TFT_MOSI 13
-//#define TFT_SCLK 14
-//#define TFT_RST -1
-
+#define USE_WIFI 0
+#define USE_WIFI_AP 1
 #define XPT2046_IRQ 36
 #define XPT2046_MOSI 32
 #define XPT2046_MISO 39
@@ -123,8 +116,11 @@ int checkKeyPad(struct KeyPad* KeyPad, int x, int y)
 
 void initWifi(const char* ssid, const char* password, int channel, int ssid_hidden, int max_connections)
 {
-  WiFi.mode(WIFI_AP);
-  WiFi.softAP(ssid, password, channel, ssid_hidden, max_connections);
+  if(USE_WIFI_AP)
+  {
+    WiFi.mode(WIFI_AP);
+    WiFi.softAP(ssid, password, channel, ssid_hidden, max_connections);
+  }
 }
 
 void setup()
@@ -147,7 +143,10 @@ void setup()
     ;
   initKeyPad(&KeyPad, 5, 320, 240, TFT_GREEN);
   drawKeyPad(&KeyPad);
-  //initWifi(ssid, password, 11, 0, 4);
+  if(USE_WIFI)
+  {
+    initWifi(ssid, password, 11, 0, 4);
+  }
 }
 
 bool wastouched = true;
