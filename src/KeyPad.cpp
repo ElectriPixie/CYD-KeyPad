@@ -5,7 +5,9 @@
 #include <SPI.h>
 #include <WiFi.h>
 
-#define USE_WIFI 0
+//Set USE_WIFI to 1 to enable wifi currently only AP mode is setup
+//USE_WIFI_AP needs to be 1 for the AP to be enabled, edit the settings in inc/WifiPasswd.h before enabling
+#define USE_WIFI 0 
 #define USE_WIFI_AP 1
 
 #define XPT2046_IRQ 36
