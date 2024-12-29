@@ -1,6 +1,6 @@
 # CYD-KeyPad
 
-## ESP32-2432S028 (CYD2USB) Key Pad 
+## ESP32-2432S028R3 (CYD2USB) Key Pad 
 
 simple keypad using TFT_eSPI and XPT2046_Touchscreen for the cheap yellow display
 
